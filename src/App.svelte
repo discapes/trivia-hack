@@ -37,8 +37,8 @@
 			).results[0];
 		} while (res.category.toLowerCase().includes("entertainment"));
 		answers = [
-			...res.incorrect_answers.map((name) => ({ name })),
-			{ name: res.correct_answer, correct: true },
+			...res.incorrect_answers.map((name) => ({ name: decodeHTML(name) })),
+			{ name: decodeHTML(res.correct_answer), correct: true },
 		];
 		shuffleArray(answers);
 		question = decodeHTML(res.question);
