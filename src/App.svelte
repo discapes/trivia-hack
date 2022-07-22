@@ -12,8 +12,9 @@
 	let answers = [];
 	let question = "Loading...";
 	let showResult = false;
-	let streak = 0;
-
+	let streak = +localStorage.getItem("streak") || 0;
+	$: localStorage.setItem("streak", streak);
+	
 	function submitAnswer(ans) {
 		ans.picked = true;
 		showResult = true;
