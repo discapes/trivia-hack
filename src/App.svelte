@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import * as he from "he";
+	import { decodeHTML } from "entities";
 
 	const delay = (s) =>
 		new Promise((resolve) => setTimeout(resolve, s * 1000));
@@ -41,7 +41,7 @@
 			{ name: res.correct_answer, correct: true },
 		];
 		shuffleArray(answers);
-		question = he.decode(res.question);
+		question = decodeHTML(res.question);
 	}
 
 	function shuffleArray(array) {
